@@ -1,3 +1,7 @@
+Library('shared-lib@master') _
+Library('jenkins-infra@staging') _
+Library('pipeline-library@master') _
+
 node ("master") {
 	def repo = "https://github.com/esteban24/java-csv-example.git"
 
@@ -8,6 +12,8 @@ node ("master") {
 	"JAVA_HOME=${tool name: 'open-jdk-8', type: 'jdk'}"]) {
 		sh "env && mvn clean package"
 	}
+
+	log.info "HOOOOOOLAAAA"
 
 	archive "**/*.hpi"
 }
