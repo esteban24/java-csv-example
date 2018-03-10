@@ -18,7 +18,5 @@ node ("master") {
 		}
 
 		log.info("Command mvn clean package completed sucessfully")
-
-		//SPACE
 	}
 }
