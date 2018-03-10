@@ -1,5 +1,5 @@
 Library('shared-lib@master') _
-Library('jenkins-infra@staging') _
+//Library('jenkins-infra@staging') _
 Library('pipeline-library@master') _
 
 node ("master") {
