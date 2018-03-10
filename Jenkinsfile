@@ -6,15 +6,19 @@ node ("master") {
 	checkout changelog: false, poll: false, scm: [
 		$class: 'GitSCM', branches: [[name: "master"]], userRemoteConfigs: [[url: repo]]]
 
-	/*withEnv(["PATH+MAVEN=${tool name: '3.5.2', type: 'maven'}/bin",
+	log.info("Checkout completed sucessfully")
+
+	withEnv(["PATH+MAVEN=${tool name: '3.5.2', type: 'maven'}/bin",
 	"JAVA_HOME=${tool name: 'open-jdk-8', type: 'jdk'}"]) {
 		sh "env && mvn clean package"
-	}*/
+	}
 
-	mvn.pkg()
+	log.info("Command mvn clean package completed sucessfully")
 
 	if(infra.isTrusted()) {
-		echo "Trusted Jenkins!!!"
+		log.info("Trusted Jenkins!!!")
+	} else {
+		log.warning("Jenkins not trusted!!!")
 	}
 
 	archive "**/*.hpi"
