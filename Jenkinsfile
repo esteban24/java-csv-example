@@ -1,6 +1,7 @@
 @Library(['shared-lib@master', 'pipeline-library@master']) _
 
 node ("master") {
+
 	timestamps {
 		def repo = "https://github.com/esteban24/java-csv-example.git"
 
