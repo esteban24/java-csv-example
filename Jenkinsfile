@@ -18,13 +18,5 @@ node ("master") {
 		}
 
 		log.info("Command mvn clean package completed sucessfully")
-
-		if(infra.isTrusted()) {
-			log.info("Trusted Jenkins!!!")
-		} else {
-			log.warning("Jenkins not trusted!!!")
-		}
-
-		archive "**/*.hpi"
 	}
 }
