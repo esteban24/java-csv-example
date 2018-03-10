@@ -1,3 +1,5 @@
+!#groovy
+
 @Library(['shared-lib@master', 'pipeline-library@master']) _
 
 node ("master") {
