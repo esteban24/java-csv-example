@@ -1,5 +1,4 @@
-Library('shared-lib@master') _
-Library('pipeline-library@master') _
+@Library(['shared-lib@master', 'pipeline-library@master']) _
 
 node ("master") {
 	def repo = "https://github.com/esteban24/java-csv-example.git"
@@ -12,7 +11,9 @@ node ("master") {
 		sh "env && mvn clean package"
 	}
 
-	log.info "HOOOOOOLAAAA"
+	if(infra.isTrusted()) {
+		echo "Trusted Jenkins!!!"
+	}
 
 	archive "**/*.hpi"
 }
